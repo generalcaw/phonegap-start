@@ -1,42 +1,306 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-                <p class="status complete blink hide">Device is Ready</p>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+    <script type="text/javascript">
+        jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+            'overrideDateFormat': '%d/%m/%Y',
+            'overrideHeaderFormat': '%d/%m/%Y'
+        });
+    </script>
+    <title>Hermes</title>
+</head>
+<body>
+    <div class="app">
+        <!-- Start of first page: #one -->
+        <div data-role="page" id="Home">
+            <div data-role="header">
+                <h1>
+                    <img src="res/icon/hermes.png" />
+                    Hermes</h1>
+                <div data-role="navbar">
+                    <ul class="ui-grid-b">
+                        <li><a data-icon="home" href="#Home" data-theme="a" class="ui-btn-active"><span class="ui-btn-text">
+                            Home</span> </a></li>
+                        <li><a data-icon="grid" href="#Tasks" data-theme="a"><span class="ui-btn-text">Tasks</span>
+                        </a></li>
+                        <li><a data-icon="info" href="#Tasks" data-theme="a"><span class="ui-btn-text">Mail</span>
+                        </a></li>
+                        <li><a data-icon="gear" href="#" data-theme="a"><span class="ui-btn-text">Setup</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
             </div>
+            <!-- /header -->
+            <div data-role="content">
+                <h2>
+                    Hermes - Transport Manager</h2>
+                
+                <p>
+                    <a href="#Tasks" data-role="button">Tasks</a></p>
+
+                <p>
+                    <a href="#Tasks" data-role="button">Mail</a></p>
+
+                <p>
+                    <a href="#Tasks" data-role="button">Setup</a></p>
+            </div>
+            <!-- /content -->
+            <div data-role="footer" data-theme="d">
+                <h4>
+                    Page Footer</h4>
+            </div>
+            <!-- /footer -->
         </div>
-        <script type="text/javascript" src="cordova-2.0.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+        <!-- /page one -->
+        <!-- Start of second page: #two -->
+        <div data-role="page" id="Tasks">
+            <div data-role="header">
+                <h1>
+                    <img src="res/icon/hermes.png" />
+                    Hermes</h1>
+                <div data-role="navbar">
+                    <ul class="ui-grid-b">
+                        <li><a data-icon="home" href="#Home" data-theme="a"><span class="ui-btn-text">
+                            Home</span> </a></li>
+                        <li><a data-icon="grid" href="#Tasks" data-theme="a" class="ui-btn-active"><span class="ui-btn-text">Tasks</span>
+                        </a></li>
+                        <li><a data-icon="info" href="#Tasks" data-theme="a"><span class="ui-btn-text">Mail</span>
+                        </a></li>
+                        <li><a data-icon="gear" href="#" data-theme="a"><span class="ui-btn-text">Setup</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
+            </div>
+            <!-- /header -->
+            <div data-role="content">
+                <h2>
+                    Tasks</h2>
+                <br />
+                <div data-role="collapsible" data-collapsed-icon="gear" data-iconpos="right" data-inset="false" data-theme="b">
+                    <h3>
+                        Filter</h3>
+                    <label for="mydate">
+                        Date</label>
+                    <input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "calbox"}'
+                        data-theme="b" >
+                </div>
+                <br />
+                
+                <br />
+                <div class="content-primary">
+                    <ul data-role="listview" class="ui-listview">
+                        <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined">
+                            Friday, October 8, 2010 <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span></li>
+                        <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-btn-up-c">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>6:24</strong>PM</p>
+                                        <h3 class="ui-li-heading">
+                                            Stephen Weber</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+                                        <p class="ui-li-desc">
+                                            Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the
+                                            jQuery team.</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-btn-up-c">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>9:18</strong>AM</p>
+                                        <h3 class="ui-li-heading">
+                                            jQuery Team</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>Boston Conference Planning</strong></p>
+                                        <p class="ui-li-desc">
+                                            In preparation for the upcoming conference in Boston, we need to start gathering
+                                            a list of sponsors and speakers.</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b">
+                            Thursday, October 7, 2010 <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">1</span></li>
+                        <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-btn-up-c">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>4:48</strong>PM</p>
+                                        <h3 class="ui-li-heading">
+                                            Avery Walker</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>Re: Dinner Tonight</strong></p>
+                                        <p class="ui-li-desc">
+                                            Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!
+                                        </p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined">
+                            Wednesday, October 6, 2010 <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">3</span></li>
+                        <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-btn-up-c">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>12:47</strong>PM</p>
+                                        <h3 class="ui-li-heading">
+                                            Amazon.com</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>4-for-3 Books for Kids</strong></p>
+                                        <p class="ui-li-desc">
+                                            As someone who has purchased children's books from our 4-for-3 Store, you may be
+                                            interested in these featured books.</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>6:24</strong>AM</p>
+                                        <h3 class="ui-li-heading">
+                                            Mike Taylor</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>Re: This weekend in Maine</strong></p>
+                                        <p class="ui-li-desc">
+                                            Hey little buddy, sorry but I can't make it up to vacationland this weekend. Maybe
+                                            next weekend?</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>5:52</strong>AM</p>
+                                        <h3 class="ui-li-heading">
+                                            Redfin</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>Redfin listing updates for today</strong></p>
+                                        <p class="ui-li-desc">
+                                            There are 3 updates for the home on your watchlist: 1 updated MLS listing and 2
+                                            homes under contract.</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b">
+                            Tuesday, October 5, 2010 <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">3</span></li>
+                        <li data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>6:24</strong>AM</p>
+                                        <h3 class="ui-li-heading">
+                                            Angela Smith</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>Link Request</strong></p>
+                                        <p class="ui-li-desc">
+                                            My name is Angela Smith, SEO Consultant. I've greatly enjoyed looking through your
+                                            site and I was wondering if you'd be interested in providing a link</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                        <li data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-right ui-li">
+                            <div class="ui-btn-inner ui-li">
+                                <div class="ui-btn-text">
+                                    <a href="index.html" class="ui-link-inherit">
+                                        <p class="ui-li-aside ui-li-desc">
+                                            <strong>6:24</strong>AM</p>
+                                        <h3 class="ui-li-heading">
+                                            Mike Taylor</h3>
+                                        <p class="ui-li-desc">
+                                            <strong>This weekend in Maine</strong></p>
+                                        <p class="ui-li-desc">
+                                            Sounds good, let me check into our plans.</p>
+                                    </a>
+                                </div>
+                                <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <br />
+                <br />
+                <a href="#Home" data-direction="reverse" data-role="button" data-theme="b">Back to home page</a></p>
+            </div>
+            <!-- /content -->
+            <div data-role="footer">
+                <h4>
+                    &copy; Copyright Craig Williams 2012</h4>
+            </div>
+            <!-- /footer -->
+        </div>
+        <!-- /page two -->
+        <!-- Start of third page: #popup -->
+        <div data-role="page" id="popup">
+            <div data-role="header" data-theme="e">
+                <h1>
+                    Dialog</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="content" data-theme="d">
+                <h2>
+                    Popup</h2>
+                <p>
+                    I have an id of "popup" on my page container and only look like a dialog because
+                    the link to me had a <code>data-rel="dialog"</code> attribute which gives me this
+                    inset look and a <code>data-transition="pop"</code> attribute to change the transition
+                    to pop. Without this, I'd be styled as a normal page.</p>
+                <p>
+                    <a href="#Home" data-rel="back" data-role="button" data-inline="true" data-icon="back">
+                        Back to page "one"</a></p>
+            </div>
+            <!-- /content -->
+            <div data-role="footer">
+                <h4>
+                    Page Footer</h4>
+            </div>
+            <!-- /footer -->
+        </div>
+        <!-- /page popup -->
+    </div>
+    <!-- /page -->
+    </div>
+    <script type="text/javascript" src="cordova-2.0.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
 </html>
